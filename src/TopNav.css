@@ -1,0 +1,27 @@
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: white;
+}
+.top-nav ul {
+  display: flex;             /* Lines up items horizontally */
+  justify-content: center;   /* Centers items along the horizontal axis */
+  list-style: none;          /* Removes default bullets */
+  padding: 0;                /* Removes default left padding */
+  margin: 0;
+  gap: 15px;                /* Adds space between items */
+}
+
+.top-nav .nav-links {
+    display: flex;
+    gap: 15px;
+}
+.top-nav li a {
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+}

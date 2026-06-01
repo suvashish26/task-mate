@@ -1,16 +1,15 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import './TopNav.css'
 function TopNav() {
     return(
         <div className="top-nav">
         <ul>
-            <li><a href="#">TaskMate</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Login</a></li>
-            <li><button>Register</button></li>
-            
+            <li><Link to ='/'>Taskmate</Link></li>
+            <li><Link to='/features'>Features</Link></li>
+            <li><Link to='/pricing'>Pricing</Link></li>
+            <li><Link to='/login'>Login</Link></li>
+            <li><Link to='/register'><button>Register</button></Link></li>
         </ul>
        </div>
     )

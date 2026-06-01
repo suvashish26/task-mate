@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './LandingPage.css'
 import screen from './assets/screen.png'
 import TopNav from './TopNav'
 import Card from './Card'
@@ -23,9 +22,11 @@ function LandingPage(){
        </div>
 
 {/* Props Usage Link with Card Component */}
+
         <Card  title='Hello, World!' description='This is a simple card component.' icon={<Camera size={48} color="#fff" />}/>
          <Card title='New, World!' description='This is the props' icon={<Heart size={48} color="#fff" />}/>
-               
+         <Card title='New, World!' description='This is the props' icon={<Heart size={48} color="#fff" />}/>
+          <Card title='New, World!' description='This is the props' icon={<Heart size={48} color="#fff" />}/>   
                </>
     )
     
