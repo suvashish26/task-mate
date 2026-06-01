@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-function Card({title,description,icon}:{title:string,description:string,icon:React.ReactNode}) {
+type CardProps = {
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+}
+function Card({title,description,icon}:CardProps) {
     return(
         <div className="card-section">
         <div className="card">
