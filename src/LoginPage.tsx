@@ -1,5 +1,7 @@
 import { useState } from "react";
 import TopNav from "./TopNav";
+import { Link } from "react-router";
+
 
 function LoginPage(){
     return(
@@ -12,7 +14,7 @@ function LoginPage(){
           <span>Email Address</span>
           <br></br>
           <input type="email" placeholder="Email Address" />
-          
+
           <span>Password</span>
           <br></br>
           <input type="password" placeholder="Password" />
@@ -20,7 +22,7 @@ function LoginPage(){
           <button type="submit">Sign In</button>
           <br></br>
           <span>SECURE ACCESS</span>
-         
+         <p>Don't have an account? <Link to ="/Register">Register</Link></p>
      </form>
      </div>
         </>
