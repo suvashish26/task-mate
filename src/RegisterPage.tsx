@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
-
+import { useState } from "react"
 function RegisterPage() {
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4 py-12 text-slate-100">
       <div className="w-full max-w-md rounded-[2rem] border border-slate-800 bg-slate-900/95 p-8 shadow-xl shadow-slate-950/40 backdrop-blur-xl">
