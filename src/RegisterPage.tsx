@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 function RegisterPage() {
+ const [fullName,setFullName]= useState('')
+ const [email, setEmail]= useState('')
+ const [password, setPassword]= useState('')
+ function handleSubmit(e: React.FormEvent){
+    e.preventDefault();
+    console.log(fullName,email,password)
+ }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4 py-12 text-slate-100">
@@ -10,12 +17,14 @@ function RegisterPage() {
           <p className="mt-3 text-sm text-slate-400">Join TaskMate and start mastering your workflow today.</p>
         </div>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <label className="block text-sm font-medium text-slate-300">
             Full Name
             <input
               type="text"
               placeholder="Full Name"
+              value={fullName}
+              onChange={(e)=> setFullName(e.target.value)}
               className="mt-2 w-full rounded-3xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-1 ring-transparent transition focus:border-slate-500 focus:ring-slate-500/30"
             />
           </label>
@@ -25,6 +34,8 @@ function RegisterPage() {
             <input
               type="email"
               placeholder="Email"
+              value={email}
+              onChange={(e)=> setEmail(e.target.value)}
               className="mt-2 w-full rounded-3xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-1 ring-transparent transition focus:border-slate-500 focus:ring-slate-500/30"
             />
           </label>
@@ -34,6 +45,8 @@ function RegisterPage() {
             <input
               type="password"
               placeholder="Password"
+              value= {password}
+              onChange={(e)=> setPassword(e.target.value)}
               className="mt-2 w-full rounded-3xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-1 ring-transparent transition focus:border-slate-500 focus:ring-slate-500/30"
             />
           </label>
