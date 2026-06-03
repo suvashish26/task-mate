@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 function RegisterPage() {
- const [fullName,setFullName]= useState('')
+ const [fullName,setFullName]= useState('') // Just to clarify left empty because we dont want input from before
  const [email, setEmail]= useState('')
  const [password, setPassword]= useState('')
  function handleSubmit(e: React.FormEvent){

@@ -2,7 +2,51 @@ import { Link } from "react-router-dom";
 import Tasks from "./Tasks";
 import { Camera, LayoutDashboard, BookOpen, Folder, Settings2, Search, Sparkles } from 'lucide-react';
 
+
 function TaskDashboard(){
+    const tasks = [
+        {
+            id:1,
+            category: 'Performance',
+            status: 'To do',
+            title: 'Optimize SQL Queries',
+            description: 'Improve the performance of SQL queries in the application.',
+            icon: <Camera />
+        },
+        {
+            id:2,
+            category: 'Security',
+            status: 'In progress',
+            title: 'Conduct Security Audit',
+            description: 'Perform a comprehensive security audit of the application.',
+            icon: <Camera />
+        },
+        {
+                id:3,
+                category: 'Usability',
+                status: 'In review',
+                title: 'Improve User Interface',
+                description: 'Enhance the user interface for better usability.',
+                icon: <Camera />
+        },
+        {
+            id:4,
+            category: 'Completion',
+            status: 'Completed',
+            title: 'Complete Project Documentation',
+            description: 'Finish writing the project documentation.',
+            icon: <Camera />
+        },
+        {
+            id:5,
+            category: 'Performance',
+            status: 'To do',
+            title: 'Optimize SQL Queries',
+            description: 'Improve the performance of SQL queries in the application.',
+            icon: <Camera />
+        }
+
+    ]
     return(
         <div className="min-h-screen bg-slate-100 text-slate-900">
             <div className="flex min-h-screen">
@@ -85,30 +129,37 @@ function TaskDashboard(){
                             <section className="space-y-5">
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">To do</div>
                                 <div className="space-y-4">
-                                    <Tasks category="Performance" title="Optimize SQL Queries" description="Improve the performance of SQL queries in the application." icon={<Camera />} />
-                                    <Tasks category="Performance" title="Optimize SQL Queries" description="Improve the performance of SQL queries in the application." icon={<Camera />} />
+                                    {tasks.filter(task => task.status === 'To do').map((task) => (
+                                        <Tasks key={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} />
+                                    ))}
                                 </div>
                             </section>
 
                             <section className="space-y-5">
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">In progress</div>
                                 <div className="space-y-4">
-                                    <Tasks category="Security" title="Conduct Security Audit" description="Perform a comprehensive security audit of the application." icon={<Camera />} />
-                                </div>
+                                   {tasks.filter(task => task.status === 'In progress').map((task)=>(
+                                    <Tasks key = {task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} />
+                                   ))}
+                                   </div>
                             </section>
 
                             <section className="space-y-5">
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">In review</div>
                                 <div className="space-y-4">
-                                    <Tasks category="Usability" title="Improve User Interface" description="Enhance the user interface for better usability." icon={<Camera />} />
-                                </div>
+                                 {tasks.filter(task=> task.status === 'In review').map ((task)=>(
+                                    <Tasks key = {task.id} category= {task.category} title={task.title} description= {task.description} icon= {task.icon}/>
+                                    ))}
+                                    </div>
                             </section>
 
                             <section className="space-y-5">
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">Completed</div>
                                 <div className="space-y-4">
-                                    <Tasks category="Completion" title="Complete Project Documentation" description="Finish writing the project documentation." icon={<Camera />} />
-                                </div>
+                                   {tasks.filter(task=> task.status === 'Completed').map((task)=>(
+                                    <Tasks key={task.id} category={task.category} title= {task.title} description={task.description} icon={task.icon}/>
+                                   ))}
+                                   </div>
                             </section>
                         </div>
                     </div>
