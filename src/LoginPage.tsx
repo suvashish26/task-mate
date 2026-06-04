@@ -1,14 +1,16 @@
 import React, { use, useState } from "react";
 import TopNav from "./TopNav";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 
 function LoginPage(){
+    const navigate = useNavigate()
     const [email, setEmail]= useState('')
     const [password, setPassword]= useState('')
     function handleSubmit(e: React.FormEvent){
         e.preventDefault();
         console.log(email, password)
+        navigate('/Dashboard')
     }
     return(
         <>

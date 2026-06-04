@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 function RegisterPage() {
+const navigate = useNavigate()
  const [fullName,setFullName]= useState('') // Just to clarify left empty because we dont want input from before
  const [email, setEmail]= useState('')
  const [password, setPassword]= useState('')
  function handleSubmit(e: React.FormEvent){
     e.preventDefault();
     console.log(fullName,email,password)
+    navigate('/login')
  }
 
   return (
