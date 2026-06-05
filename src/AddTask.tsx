@@ -1,13 +1,29 @@
+
 import { useState } from "react";
 
-function AddTask(){
+
+interface AddTaskProps {
+    addTask: (category: string,status: string, title: string, description: string) => void;
+   
+}
+function AddTask({addTask}: AddTaskProps){
+    
     const [taskTitle, setTaskTitle]= useState('');
     const [description, setDescription]= useState('')
     const [category, setCategory]= useState('')
     const [status, setStatus]= useState('')
     function handlesubmit(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
-        console.log(taskTitle, description, category, status)
+        // console.log(taskTitle, description, category, status)
+        if (!category.trim()) return; // Prevent empty tasks
+        if (!status.trim()) return; // Prevent empty tasks
+        if (!taskTitle.trim()) return; // Prevent empty tasks
+        if (!description.trim()) return; // Prevent empty tasks
+        addTask(category, status, taskTitle, description); // Call the function passed down from App
+        setTaskTitle("");   // Clear the input
+        setDescription("");
+        setCategory("");
+        setStatus("");
     }
     return(
         <>

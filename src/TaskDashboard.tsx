@@ -2,51 +2,19 @@ import { Link } from "react-router-dom";
 import Tasks from "./Tasks";
 import { Camera, LayoutDashboard, BookOpen, Folder, Settings2, Search, Sparkles } from 'lucide-react';
 
-
-function TaskDashboard(){
-    const tasks = [
-        {
-            id:1,
-            category: 'Performance',
-            status: 'To do',
-            title: 'Optimize SQL Queries',
-            description: 'Improve the performance of SQL queries in the application.',
-            icon: <Camera />
-        },
-        {
-            id:2,
-            category: 'Security',
-            status: 'In progress',
-            title: 'Conduct Security Audit',
-            description: 'Perform a comprehensive security audit of the application.',
-            icon: <Camera />
-        },
-        {
-                id:3,
-                category: 'Usability',
-                status: 'In review',
-                title: 'Improve User Interface',
-                description: 'Enhance the user interface for better usability.',
-                icon: <Camera />
-        },
-        {
-            id:4,
-            category: 'Completion',
-            status: 'Completed',
-            title: 'Complete Project Documentation',
-            description: 'Finish writing the project documentation.',
-            icon: <Camera />
-        },
-        {
-            id:5,
-            category: 'Performance',
-            status: 'To do',
-            title: 'Optimize SQL Queries',
-            description: 'Improve the performance of SQL queries in the application.',
-            icon: <Camera />
-        }
-
-    ]
+interface Task {
+    id: number;
+    category: string;
+    status: string;
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+}
+interface TaskDashboardProps {
+    tasks: Task[];
+}
+function TaskDashboard({tasks}: TaskDashboardProps) {
+    
     return(
         <div className="min-h-screen bg-slate-100 text-slate-900">
             <div className="flex min-h-screen">
