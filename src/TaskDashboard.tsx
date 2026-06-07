@@ -100,10 +100,10 @@ function TaskDashboard({tasks, deleteTask}: TaskDashboardProps) {
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">To do</div>
                                 <div className="space-y-4">
                                 
-                                    {tasks.filter(task => task.status === 'To do').map((task) => {
-                                        console.log('task.id is:', task.id)
-                                        return <Tasks key={task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask} />
-                                    })}
+                                    {tasks.filter(task => task.status === 'To do').map((task) => (
+                                       
+                                        <Tasks key={task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask} />
+                                    ))}
                                    
                                 </div>
                             </section>
@@ -112,30 +112,30 @@ function TaskDashboard({tasks, deleteTask}: TaskDashboardProps) {
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">In progress</div>
                                 <div className="space-y-4">
                                   
-                                   {tasks.filter(task => task.status === 'In progress').map((task)=> {
-                                       console.log('task.id is:', task.id)
-                                   return <Tasks key = {task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask}/>
-})}
+                                   {tasks.filter(task => task.status === 'In progress').map((task)=> (
+                                      
+                                    <Tasks key = {task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask}/>
+))}
                                    </div>
                             </section>
 
                             <section className="space-y-5">
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">In review</div>
                                 <div className="space-y-4">
-                                 {tasks.filter(task=> task.status === 'In review').map ((task)=>{
-                                       console.log('task.id is:', task.id)
-                                   return <Tasks key = {task.id} id={task.id} category= {task.category} title={task.title} description= {task.description} icon= {task.icon} deleteTask={deleteTask}/>
-})}
+                                 {tasks.filter(task=> task.status === 'In review').map ((task)=>(
+                                       
+                                   <Tasks key = {task.id} id={task.id} category= {task.category} title={task.title} description= {task.description} icon= {task.icon} deleteTask={deleteTask}/>
+))}
                                     </div>
                             </section>
 
                             <section className="space-y-5">
                                 <div className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-700">Completed</div>
                                 <div className="space-y-4">
-                                   {tasks.filter(task=> task.status === 'Completed').map((task)=>{
-                                       console.log('task.id is:', task.id)
-                                   return <Tasks key={task.id} id={task.id} category={task.category} title= {task.title} description={task.description} icon={task.icon} deleteTask={deleteTask}/>
-})}
+                                   {tasks.filter(task=> task.status === 'Completed').map((task)=>(
+                                   
+                                  <Tasks key={task.id} id={task.id} category={task.category} title= {task.title} description={task.description} icon={task.icon} deleteTask={deleteTask}/>
+))}
                                    </div>
                             </section>
                         </div>

@@ -10,11 +10,11 @@ type taskProps = {
 }
 
 function Tasks({ id,category, title, description, icon, deleteTask }: taskProps){
-     console.log('Tasks received id:', id)
+    
     return(
         
         <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white px-5 py-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-           <div>{id}</div>
+           
             <div className="mb-3 inline-flex rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-700">
                 {category}
             </div>

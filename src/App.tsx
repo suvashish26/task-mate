@@ -77,7 +77,7 @@ function App() {
       setTasks([...tasks, newTask])
     }
     function deleteTask(id: number){
-       console.log('deleteTask called with id:', id)
+      
       setTasks(tasks.filter(task => task.id != id))
     }
 
