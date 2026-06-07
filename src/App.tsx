@@ -76,6 +76,11 @@ function App() {
       }
       setTasks([...tasks, newTask])
     }
+    function deleteTask(id: number){
+       console.log('deleteTask called with id:', id)
+      setTasks(tasks.filter(task => task.id != id))
+    }
+
   return (
     
     <BrowserRouter>
@@ -83,7 +88,8 @@ function App() {
         <Route path='/' element={<LandingPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path = '/Register' element={<RegisterPage />} />
-        <Route path = '/Dashboard' element={<TaskDashboard tasks={tasks} />} />
+        <Route path='/dashboard' element={<TaskDashboard tasks={tasks} deleteTask={deleteTask} />} />
+        {/* Pass addTask as a prop */}
         <Route path = '/Task' element={<AddTask addTask={addTask}/>} />
       </Routes>
     </BrowserRouter>
