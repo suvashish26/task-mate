@@ -9,6 +9,7 @@ import AddTask from './AddTask'
 import { Camera } from 'lucide-react'
 
 function App() {
+
    interface Task{
     id: number;
     category: string;
@@ -77,9 +78,15 @@ function App() {
       setTasks([...tasks, newTask])
     }
     function deleteTask(id: number){
-      
       setTasks(tasks.filter(task => task.id != id))
     }
+
+function updateTask(id:number){
+  setTasks(tasks.map(task =>
+    task.id === id ? {...task, status: "Completed"} : task // ternary
+  ))
+}
+
 
   return (
     
@@ -88,7 +95,7 @@ function App() {
         <Route path='/' element={<LandingPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path = '/Register' element={<RegisterPage />} />
-        <Route path='/dashboard' element={<TaskDashboard tasks={tasks} deleteTask={deleteTask} />} />
+        <Route path='/dashboard' element={<TaskDashboard tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>} />
         {/* Pass addTask as a prop */}
         <Route path = '/Task' element={<AddTask addTask={addTask}/>} />
       </Routes>

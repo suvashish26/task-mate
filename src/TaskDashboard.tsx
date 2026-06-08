@@ -13,9 +13,10 @@ interface Task {
 interface TaskDashboardProps {
     tasks: Task[];
     deleteTask: (id:number) => void; // deleteTask inside same interface  
+    updateTask: (id: number) => void;
 }
 
-function TaskDashboard({tasks, deleteTask}: TaskDashboardProps) {
+function TaskDashboard({tasks, deleteTask, updateTask}: TaskDashboardProps) {
     
     return(
         <div className="min-h-screen bg-slate-100 text-slate-900">
@@ -102,7 +103,7 @@ function TaskDashboard({tasks, deleteTask}: TaskDashboardProps) {
                                 
                                     {tasks.filter(task => task.status === 'To do').map((task) => (
                                        
-                                        <Tasks key={task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask} />
+                                        <Tasks key={task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask} updateTask={updateTask} />
                                     ))}
                                    
                                 </div>
@@ -114,7 +115,7 @@ function TaskDashboard({tasks, deleteTask}: TaskDashboardProps) {
                                   
                                    {tasks.filter(task => task.status === 'In progress').map((task)=> (
                                       
-                                    <Tasks key = {task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask}/>
+                                    <Tasks key = {task.id} id={task.id} category={task.category} title={task.title} description={task.description} icon={task.icon} deleteTask={deleteTask} updateTask={updateTask}/>
 ))}
                                    </div>
                             </section>
@@ -124,7 +125,7 @@ function TaskDashboard({tasks, deleteTask}: TaskDashboardProps) {
                                 <div className="space-y-4">
                                  {tasks.filter(task=> task.status === 'In review').map ((task)=>(
                                        
-                                   <Tasks key = {task.id} id={task.id} category= {task.category} title={task.title} description= {task.description} icon= {task.icon} deleteTask={deleteTask}/>
+                                   <Tasks key = {task.id} id={task.id} category= {task.category} title={task.title} description= {task.description} icon= {task.icon} deleteTask={deleteTask} updateTask={updateTask} />
 ))}
                                     </div>
                             </section>
@@ -134,7 +135,7 @@ function TaskDashboard({tasks, deleteTask}: TaskDashboardProps) {
                                 <div className="space-y-4">
                                    {tasks.filter(task=> task.status === 'Completed').map((task)=>(
                                    
-                                  <Tasks key={task.id} id={task.id} category={task.category} title= {task.title} description={task.description} icon={task.icon} deleteTask={deleteTask}/>
+                                  <Tasks key={task.id} id={task.id} category={task.category} title= {task.title} description={task.description} icon={task.icon} deleteTask={deleteTask} updateTask={updateTask}/>
 ))}
                                    </div>
                             </section>

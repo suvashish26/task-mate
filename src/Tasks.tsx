@@ -7,9 +7,10 @@ type taskProps = {
     description: string;
     icon: ReactNode;
     deleteTask: (id:number) => void;
+    updateTask: (id:number) => void;
 }
 
-function Tasks({ id,category, title, description, icon, deleteTask }: taskProps){
+function Tasks({ id,category, title, description, icon, deleteTask,updateTask }: taskProps){
     
     return(
         
@@ -22,6 +23,8 @@ function Tasks({ id,category, title, description, icon, deleteTask }: taskProps)
             <p className="text-sm leading-6 text-slate-600 mb-5">{description}</p>
             <div className="flex items-center gap-2 text-slate-400">{icon}</div>
             <button onClick={() => deleteTask(id)}>Delete</button>
+            <br />
+            <button onClick={() => updateTask(id)}>Complete</button>
         </div>
     )
 }
