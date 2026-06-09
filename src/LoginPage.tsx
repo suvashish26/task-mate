@@ -7,8 +7,15 @@ function LoginPage(){
     const navigate = useNavigate()
     const [email, setEmail]= useState('')
     const [password, setPassword]= useState('')
+    const [error, setError]= useState('')
     function handleSubmit(e: React.FormEvent){
         e.preventDefault();
+        if (email === ''){
+            setError("Email is required")
+        }
+        if (password ===''){
+            setError("Password is required")
+        }
         console.log(email, password)
         navigate('/Dashboard')
     }
@@ -30,6 +37,7 @@ function LoginPage(){
           <button type="submit">
             Sign In
           </button>
+          {error && <p className="text-red-400 text-sm">{error}</p>}
           <br></br>
           <span>SECURE ACCESS</span>
          <p>Don't have an account? <Link to ="/Register">Register</Link></p>

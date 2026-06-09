@@ -3,7 +3,7 @@ import { useState } from "react"
 
 function RegisterPage() {
 const navigate = useNavigate()
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// const passwordRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  const [fullName,setFullName]= useState('') // Just to clarify left empty because we dont want input from before
 const [email, setEmail] = useState('');
  const [password, setPassword]= useState('')
@@ -27,10 +27,10 @@ const [email, setEmail] = useState('');
     setError('Password must be at least 6 characters')
     return  
   }
-  if (!emailRegex.test(email)){
-  setError("Please enter a valid email address")
-  return
-  }
+  // if (!passwordRegex.test(password)){
+  // setError("Please enter a valid email address")
+  // return
+  // }
     console.log(fullName,email,password)
     navigate('/login')
  }
