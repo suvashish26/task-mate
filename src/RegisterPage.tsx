@@ -1,15 +1,40 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
+
 function RegisterPage() {
 const navigate = useNavigate()
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  const [fullName,setFullName]= useState('') // Just to clarify left empty because we dont want input from before
- const [email, setEmail]= useState('')
+const [email, setEmail] = useState('');
  const [password, setPassword]= useState('')
+ const [error, setError]= useState('')
+
  function handleSubmit(e: React.FormEvent){
     e.preventDefault();
+    if (fullName === '') {
+    setError('Full name is required')
+    return
+  }
+  if (email === '') {
+    setError('Email is required')
+    return
+  }
+  if (password === '') {
+    setError('Password is required')
+    return
+  }
+  if (password.length < 6) {
+    setError('Password must be at least 6 characters')
+    return  
+  }
+  if (!emailRegex.test(email)){
+  setError("Please enter a valid email address")
+  return
+  }
     console.log(fullName,email,password)
     navigate('/login')
  }
+
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4 py-12 text-slate-100">
@@ -52,13 +77,14 @@ const navigate = useNavigate()
               className="mt-2 w-full rounded-3xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-1 ring-transparent transition focus:border-slate-500 focus:ring-slate-500/30"
             />
           </label>
-
+          
           <button
             type="submit"
             className="w-full rounded-3xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
           >
             Register
           </button>
+          {error && <p className="text-red-400 text-sm">{error}</p>}
         </form>
 
         <p className="mt-6 text-center text-sm text-slate-400">
