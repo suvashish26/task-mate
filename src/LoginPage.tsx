@@ -2,8 +2,10 @@ import React, { use, useState } from "react";
 import TopNav from "./TopNav";
 import { Link, useNavigate } from "react-router";
 
-
-function LoginPage(){
+interface login {
+    setIsLoggedIn: (value: boolean) => void
+}
+function LoginPage({setIsLoggedIn}:login){
     const navigate = useNavigate()
     const [email, setEmail]= useState('')
     const [password, setPassword]= useState('')
@@ -17,6 +19,7 @@ function LoginPage(){
             setError("Password is required")
         }
         console.log(email, password)
+        setIsLoggedIn(true)
         navigate('/Dashboard')
     }
     return(

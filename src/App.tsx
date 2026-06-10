@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import ProtectedRoute from './ProtectedRoute'
 import TopNav from './TopNav'
 import LandingPage from './LandingPage'
 import LoginPage from './LoginPage'
@@ -87,17 +88,22 @@ function updateTask(id:number){
   ))
 }
 
-
+const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     
     <BrowserRouter>
       <Routes>
+        {/* Public Routes */}
+        
         <Route path='/' element={<LandingPage />} />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn } />} />
         <Route path = '/Register' element={<RegisterPage />} />
+        {/* Protected Routes Layout Wrapper */}
+        <Route element = {<ProtectedRoute isAuthenticated={isLoggedIn}/>}>
         <Route path='/dashboard' element={<TaskDashboard tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>} />
         {/* Pass addTask as a prop */}
         <Route path = '/Task' element={<AddTask addTask={addTask}/>} />
+      </Route>
       </Routes>
     </BrowserRouter>
   )
