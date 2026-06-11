@@ -1,95 +1,27 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
+import AuthForm from "./AuthForm"
 
 function RegisterPage() {
-const navigate = useNavigate()
-// const passwordRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
- const [fullName,setFullName]= useState('') // Just to clarify left empty because we dont want input from before
-const [email, setEmail] = useState('');
- const [password, setPassword]= useState('')
- const [error, setError]= useState('')
+  const navigate = useNavigate()
 
- function handleSubmit(e: React.FormEvent){
-    e.preventDefault();
-    if (fullName === '') {
-    setError('Full name is required')
-    return
-  }
-  if (email === '') {
-    setError('Email is required')
-    return
-  }
-  if (password === '') {
-    setError('Password is required')
-    return
-  }
-  if (password.length < 6) {
-    setError('Password must be at least 6 characters')
-    return  
-  }
-  // if (!passwordRegex.test(password)){
-  // setError("Please enter a valid email address")
-  // return
-  // }
-    console.log(fullName,email,password)
+  function handleRegisterSubmit(data: { fullName?: string; email: string; password: string }) {
+    console.log(data)
     navigate('/login')
- }
-
+  }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4 py-12 text-slate-100">
-      <div className="w-full max-w-md rounded-[2rem] border border-slate-800 bg-slate-900/95 p-8 shadow-xl shadow-slate-950/40 backdrop-blur-xl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-md rounded-3xl bg-white p-8 shadow-xl shadow-indigo-900/10 border border-indigo-100">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-semibold tracking-tight text-white">Create Your Account</h1>
-          <p className="mt-3 text-sm text-slate-400">Join TaskMate and start mastering your workflow today.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Create Your Account</h1>
+          <p className="mt-3 text-sm text-gray-600">Join TaskMate and start mastering your workflow today.</p>
         </div>
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <label className="block text-sm font-medium text-slate-300">
-            Full Name
-            <input
-              type="text"
-              placeholder="Full Name"
-              value={fullName}
-              onChange={(e)=> setFullName(e.target.value)}
-              className="mt-2 w-full rounded-3xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-1 ring-transparent transition focus:border-slate-500 focus:ring-slate-500/30"
-            />
-          </label>
+        <AuthForm mode="register" onSubmit={handleRegisterSubmit} />
 
-          <label className="block text-sm font-medium text-slate-300">
-            Email
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e)=> setEmail(e.target.value)}
-              className="mt-2 w-full rounded-3xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-1 ring-transparent transition focus:border-slate-500 focus:ring-slate-500/30"
-            />
-          </label>
-
-          <label className="block text-sm font-medium text-slate-300">
-            Password
-            <input
-              type="password"
-              placeholder="Password"
-              value= {password}
-              onChange={(e)=> setPassword(e.target.value)}
-              className="mt-2 w-full rounded-3xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-slate-100 outline-none ring-1 ring-transparent transition focus:border-slate-500 focus:ring-slate-500/30"
-            />
-          </label>
-          
-          <button
-            type="submit"
-            className="w-full rounded-3xl bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
-          >
-            Register
-          </button>
-          {error && <p className="text-red-400 text-sm">{error}</p>}
-        </form>
-
-        <p className="mt-6 text-center text-sm text-slate-400">
+        <p className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{' '}
-          <Link to="/login" className="font-semibold text-slate-50 underline-offset-4 transition hover:text-white hover:underline">
+          <Link to="/login" className="font-semibold text-indigo-600 underline-offset-4 transition hover:text-indigo-700 hover:underline">
             Login
           </Link>
         </p>
