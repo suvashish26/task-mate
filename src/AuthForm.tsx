@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+//Reusable auth form creation
 type AuthFormProps = {
   mode?: 'register' | 'login'
   onSubmit?: (data: { fullName?: string; email: string; password: string }) => void
