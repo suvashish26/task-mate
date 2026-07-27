@@ -4,9 +4,9 @@ import Footer from './Footer'
 
 function Feature(){
 return(
-    <>
-    <TopNav />
-   <section className="hero-section center" >
+    <div className="bg-[#f3f4ff] min-h-screen">
+      <TopNav />
+      <section className="hero-section center" >
         <div className="hero-copy">
           <span className="eyebrow">Mastery Framework</span>
           <h1>Master your workflow with TaskMate</h1>
@@ -14,18 +14,10 @@ return(
             Build fullstack skills through a structured journey from initial Awareness to complete Mastery. Focus on what matters: shipping clean, production-ready code.
           </p>
 
-          <div className="hero-actions center">
-            <Link to="/get-started" className="button primary">
-              Get Started
-            </Link>
-            <Link to="/view-code" className="button secondary">
-              View Code
-            </Link>
-            </div>
-            </div>
-            </section>
+        </div>
+      </section>
 
-            <section className="feature-moreover px-6 py-16 sm:px-10 lg:px-16">
+      <section className="feature-moreover px-6 py-16 sm:px-10 lg:px-16">
               <div className="mx-auto max-w-6xl">
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-violet-600">Moreover</p>
                 <h2 className="mb-6 text-3xl font-semibold text-slate-950 sm:text-4xl">
@@ -54,8 +46,7 @@ return(
               </div>
             </section>
             <Footer />
-            </>
-
+    </div>
 )
 }
 export default Feature

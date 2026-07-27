@@ -28,11 +28,11 @@ function LandingPage() {
           </p>
 
           <div className="hero-actions">
-            <Link to="/get-started" className="button primary">
+            <Link to="/features" className="button primary">
               Get Started
             </Link>
-            <Link to="/view-code" className="button secondary">
-              View Code
+            <Link to="/pricing" className="button secondary">
+              Pricing
             </Link>
           </div>
 
