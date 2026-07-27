@@ -1,5 +1,7 @@
 import TopNav from "./TopNav"
 import { Link } from "react-router-dom"
+import Footer from './Footer'
+
 function Feature(){
 return(
     <>
@@ -22,6 +24,7 @@ return(
             </div>
             </div>
             </section>
+            <Footer />
             </>
 
 )

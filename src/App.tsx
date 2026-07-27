@@ -8,6 +8,7 @@ import RegisterPage from './RegisterPage'
 import TaskDashboard from './TaskDashboard'
 import AddTask from './AddTask'
 import Feature from './Features'
+import Pricing from './Pricing'
 import { Camera } from 'lucide-react'
 
 function App() {
@@ -98,6 +99,7 @@ const [isLoggedIn, setIsLoggedIn] = useState(false)
         
         <Route path='/' element={<LandingPage />} />
         <Route path='/features' element={<Feature/>}></Route>
+        <Route path='/pricing' element={<Pricing />} />
         <Route path='/login' element={<LoginPage setIsLoggedIn={setIsLoggedIn } />} />
         <Route path = '/Register' element={<RegisterPage />} />
         {/* Protected Routes Layout Wrapper */}

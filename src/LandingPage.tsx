@@ -6,6 +6,7 @@ import { Heart, Shield, Sparkles } from 'lucide-react'
 import './LandingPage.css'
 import { useState } from 'react'
 import AuthForm from './AuthForm'
+import Footer from './Footer'
 
 function LandingPage() {
   const [activeTab, setActiveTab] = useState('register')
@@ -141,6 +142,7 @@ function LandingPage() {
         </div>
   
       </section>
+      <Footer />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TopNav from './TopNav'
+import Footer from './Footer'
 
 const pricingPlans = [
   {
@@ -175,6 +176,7 @@ const Pricing = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   )
 }
