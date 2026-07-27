@@ -5,7 +5,6 @@ Task management app frontend built with React, TypeScript, and Vite. Includes a 
 ## Features
 
 - Static marketing pages (Landing, Features, Pricing)
-- JWT-based auth (Login/Register) with protected routes
 - Task CRUD
 - Toggle a task complete to move it from To-Do to Completed (no drag-and-drop)
 
