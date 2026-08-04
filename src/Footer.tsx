@@ -11,6 +11,7 @@ const Footer = () => {
           <a href="#" className="transition hover:text-violet-600">Privacy Policy</a>
           <a href="#" className="transition hover:text-violet-600">Terms of Service</a>
           <a href="#" className="transition hover:text-violet-600">Contact Us</a>
+          <a href="#" className="transition hover:text-violet-600">Feedback</a>
         </div>
       </div>
     </footer>
